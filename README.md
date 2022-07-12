@@ -17,6 +17,9 @@ eget zyedidia/chiseler
 
 # Usage
 
+Create a new project by running `chiseler init`. This will set up the directory
+structure with a blank Chisel project.
+
 
 ```
 Usage: chiseler <flags> <subcommand> <subcommand args>
