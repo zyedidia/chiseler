@@ -1,4 +1,4 @@
-TOP=Top
+TOP={{ .Top }}
 SBT=sbt --client
 
 SRC=$(shell find ./src/main/scala -name "*.scala")

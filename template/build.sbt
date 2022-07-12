@@ -1,6 +1,6 @@
-scalaVersion := "2.12.13"
+scalaVersion := "{{ .ScalaVersion }}"
 
-val chiselVersion = "3.5.1"
+val chiselVersion = "{{ .ChiselVersion }}"
 
 scalacOptions ++= Seq(
   "-deprecation",
@@ -18,5 +18,5 @@ resolvers ++= Seq(
 addCompilerPlugin("edu.berkeley.cs" % "chisel3-plugin" % chiselVersion cross CrossVersion.full)
 libraryDependencies ++= Seq(
   "edu.berkeley.cs" %% "chisel3" % chiselVersion,
-  "edu.berkeley.cs" %% "chiseltest" % "0.5.1" % "test"
+  "edu.berkeley.cs" %% "chiseltest" % "{{ .ChiselTestVersion }}" % "test"
 )
