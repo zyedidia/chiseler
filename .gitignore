@@ -1,4 +1,5 @@
 template/target
-template/project
+template/project/*
+!template/project/plugins.sbt
 template/generated
 chiseler_*

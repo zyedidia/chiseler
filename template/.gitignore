@@ -2,6 +2,7 @@ generated
 target
 project/target
 test_run_dir
+.bsp
 
 # Scala IDEs
 .project
