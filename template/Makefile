@@ -1,8 +1,8 @@
-TOP={{ .Top }}
-SBT=sbt --client
+TOP = {{ .Top }}
+SBT = sbt --client
 
-SRC=$(shell find ./src/main/scala -name "*.scala")
-TEST=$(shell find ./src/test/scala -name "*.scala")
+SRC = $(shell find ./src/main/scala -name "*.scala")
+TEST = $(shell find ./src/test/scala -name "*.scala")
 
 build: generated/$(TOP).v
 
