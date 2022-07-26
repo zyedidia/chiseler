@@ -22,6 +22,7 @@ type initCmd struct {
 	ChiselVersion     string
 	ScalaVersion      string
 	ChiselTestVersion string
+	Test              bool
 }
 
 func (*initCmd) Name() string     { return "init" }
@@ -38,6 +39,7 @@ func (p *initCmd) SetFlags(f *flag.FlagSet) {
 	f.StringVar(&p.ChiselTestVersion, "chiselTest", "0.5.1", "ChiselTest version")
 	f.StringVar(&p.Top, "top", "Top", "Top module name")
 	f.StringVar(&p.Package, "package", "main", "Package name")
+	f.BoolVar(&p.Test, "test", true, "Including test stub")
 }
 
 func (p *initCmd) Execute(_ context.Context, f *flag.FlagSet, _ ...interface{}) subcommands.ExitStatus {
@@ -49,6 +51,10 @@ func (p *initCmd) Execute(_ context.Context, f *flag.FlagSet, _ ...interface{}) 
 			return nil
 		}
 		newpath := path[len("template/"):]
+
+		if !p.Test && strings.HasPrefix(newpath, "src/test") {
+			return nil
+		}
 
 		if strings.Contains(newpath, "Top.scala") {
 			newpath = strings.Replace(newpath, "Top.scala", p.Top+".scala", -1)

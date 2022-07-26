@@ -18,7 +18,10 @@ generated/$(TOP).v: $(SRC) generated
 test: $(SRC) $(TEST)
 	$(SBT) "Test / test"
 
+format:
+	$(SBT) scalafmtAll
+
 clean:
 	rm -rf generated
 
-.PHONY: build check test clean
+.PHONY: build check test clean format
